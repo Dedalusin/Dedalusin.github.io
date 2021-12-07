@@ -14,16 +14,16 @@ category: 问题
 正文：
 
 The condition for `hasArray` is  
-  
-```java  
+    
+```java   
 (hb != null) && !isReadOnly
 ```
 
 ------
-
+  
 `isReadOnly` changes if you use `asReadOnlyBuffer`
-
-```java  
+  
+```java   
 CharBuffer.allocate(20).asReadOnlyBuffer();
 ```
 

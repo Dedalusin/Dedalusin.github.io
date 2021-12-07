@@ -12,7 +12,7 @@ category: 阅读
    - 覆盖equals时必须要覆盖hashcode：map中先是由hashcode散列确定位置再由equals比较，假如两个一致却没覆盖hashcode便会导致map中存有重复的目标对象。
 
    - 不要将equals声明中的object对象替换为其他类型
-
+   
      ```java  
      // bad example，这并没有覆盖方法，而是重载
      public boolean equals(MyClass o){}
@@ -43,8 +43,8 @@ category: 阅读
    - 一旦实现了comparable接口，它就可以跟许多泛型算法以及依赖于该接口的集合实现进行协作。
 
    - 当比较依赖于两个值之间的区别时，不要使用以下代码。
-
-     ```java  
+  
+     ```java    
      // bad example 会造成整数溢出
      static Comparator<Object> hashCodeOrder = new Comparator<>(){
          public int compare(Object o1, Object o2) {
