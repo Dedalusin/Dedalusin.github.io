@@ -3,7 +3,7 @@
 https://stackoverflow.com/questions/55442531/why-do-we-ever-need-hasarray-method-in-charbuffer
 
 正文：
-The condition for hasArray is
+The condition for hasArray is  
 (hb != null) &amp;amp;&amp;amp; !isReadOnly
 
 
@@ -13,7 +13,7 @@ CharBuffer.allocate(20).asReadOnlyBuffer();
 for example.So yes, we need it.
 
 Take this line
-final CharBuffer cb = instance...</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2021/12/07/hasArray/">Read more</a></section></article><article class="post-item-card"><section class="content post-card-content p-4 pb-5"><header><a href="/tags/java"><i class="tag post-item-tag">java</i></a></header><h2 class="mt-4 mb-0 is-family-serif"><a href="/2021/11/25/effective%20java1/">effective java阅读1</a></h2><time class="has-text-grey" datetime="2021-11-24T16:00:00.000Z">2021-11-25</time><p class="is-flex-grow-2 mt-2">创建和销毁对象
+final CharBuffer cb = instanc..</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2021/12/07/hasArray/">Read more</a></section></article><article class="post-item-card"><section class="content post-card-content p-4 pb-5"><header><a href="/tags/java"><i class="tag post-item-tag">java</i></a></header><h2 class="mt-4 mb-0 is-family-serif"><a href="/2021/11/25/effective%20java1/">effective java阅读1</a></h2><time class="has-text-grey" datetime="2021-11-24T16:00:00.000Z">2021-11-25</time><p class="is-flex-grow-2 mt-2">创建和销毁对象
 避免创建不必要的对象。
 比如使用正则表达式matche字符串时，可以将其显式编译为一个pattern实例（不可变），当需要比较时，直接重用该实例。
 
