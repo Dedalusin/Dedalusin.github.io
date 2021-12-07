@@ -13,7 +13,7 @@ category: 阅读
 
    - 不要将equals声明中的object对象替换为其他类型
 
-     ```java
+     ```java  
      // bad example，这并没有覆盖方法，而是重载
      public boolean equals(MyClass o){}
      
@@ -44,7 +44,7 @@ category: 阅读
 
    - 当比较依赖于两个值之间的区别时，不要使用以下代码。
 
-     ```java
+     ```java  
      // bad example 会造成整数溢出
      static Comparator<Object> hashCodeOrder = new Comparator<>(){
          public int compare(Object o1, Object o2) {

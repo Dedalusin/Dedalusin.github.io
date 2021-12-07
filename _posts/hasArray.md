@@ -13,9 +13,9 @@ category: 问题
 
 正文：
 
-The condition for `hasArray` is
-
-```java
+The condition for `hasArray` is  
+  
+```java  
 (hb != null) && !isReadOnly
 ```
 
@@ -23,7 +23,7 @@ The condition for `hasArray` is
 
 `isReadOnly` changes if you use `asReadOnlyBuffer`
 
-```java
+```java  
 CharBuffer.allocate(20).asReadOnlyBuffer();
 ```
 
@@ -34,13 +34,13 @@ So yes, we need it.
 
 Take this line
 
-```java
+```java  
 final CharBuffer cb = instance.getCharBuffer(...);
 ```
 
 Is it read-only or not? Does it hold a valid `char[]` array? We don't really know. If we do
 
-```java
+```java  
 cb.array();
 ```
 
@@ -49,7 +49,7 @@ If it isn't backed by a `char[]` array we get a `UnsupportedOperationException`.
 
 So what we *might* do is
 
-```java
+```java  
 if (cb.hasArray()) {
    final char[] arr = cb.array();
 }
