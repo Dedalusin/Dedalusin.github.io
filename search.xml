@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>test</title>
+      <link href="/2021/12/07/test/"/>
+      <url>/2021/12/07/test/</url>
+      
+        <content type="html"><![CDATA[<h3 id="test-of-code"><a href="#test-of-code" class="headerlink" title="test of code"></a>test of code</h3><pre><code class="java">public class Main()&#123;  public static void main()&#123;    System.out.println(&quot;ddd&quot;);    &#125;&#125;</code></pre>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>为什么要有hasArray()？</title>
       <link href="/2021/12/07/hasArray/"/>
       <url>/2021/12/07/hasArray/</url>
