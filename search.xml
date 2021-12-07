@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>为什么要有hasArray()？</title>
+      <link href="/2021/12/07/hasArray/"/>
+      <url>/2021/12/07/hasArray/</url>
+      
+        <content type="html"><![CDATA[<p>直接贴StackOverflow  </p><p><a href="https://stackoverflow.com/questions/55442531/why-do-we-ever-need-hasarray-method-in-charbuffer">https://stackoverflow.com/questions/55442531/why-do-we-ever-need-hasarray-method-in-charbuffer</a></p><hr><p>正文：</p><p>The condition for <code>hasArray</code> is</p><pre><code class="java">(hb != null) &amp;&amp; !isReadOnly</code></pre><hr><p><code>isReadOnly</code> changes if you use <code>asReadOnlyBuffer</code></p><pre><code class="java">CharBuffer.allocate(20).asReadOnlyBuffer();</code></pre><p>for example.<br>So yes, we need it.</p><hr><p>Take this line</p><pre><code class="java">final CharBuffer cb = instance.getCharBuffer(...);</code></pre><p>Is it read-only or not? Does it hold a valid <code>char[]</code> array? We don’t really know. If we do</p><pre><code class="java">cb.array();</code></pre><p>and it is a read-only Buffer, we get a <code>ReadOnlyBufferException</code>.<br>If it isn’t backed by a <code>char[]</code> array we get a <code>UnsupportedOperationException</code>.</p><p>So what we <em>might</em> do is</p><pre><code class="java">if (cb.hasArray()) &#123;   final char[] arr = cb.array();&#125;</code></pre><p>Now we are <code>Exception</code>-safe.<br>Also, you can be sure Oracle/OpenJDK/whateverJDK engineers know what they’re doing ;)</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 问题 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>海底-2</title>
       <link href="/2021/11/27/%E6%B5%B7%E5%BA%952/"/>
       <url>/2021/11/27/%E6%B5%B7%E5%BA%952/</url>
