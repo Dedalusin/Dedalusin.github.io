@@ -32,14 +32,13 @@ try-with-resources优先于try-finally。（在有嵌套try结构时有效避免
 覆盖equals时必须要覆盖hashcode：map中先是由hashcode散列确定位置再由equals比较，假如两个一致却没覆盖hashcode便会导致map中存有重复的目标对象。
 
 不要将equals声明中的object对象替换为其他类型
-
 // bad example，这并没有覆盖方法，而是重载
 public boolean equals(MyClass o)&amp;#123;&amp;#125;
 
 // good 以Integer的equals方法为例
 public boolean equals(Object obj) &amp;#123;
         if (obj instanceof Integer) &amp;#123;
-            return va..</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2021/11/25/effective%20java2/">Read more</a></section></article></section><aside class="column is-hidden-mobile is-4-tablet is-3-widescreen"><div style="position: sticky; top: 50px;"><main class="aside-card-container tag-widget is-in-tag-page"><h3>Tags</h3><section><a href="/tags/java"><span class="tag post-item-tag" style="margin-bottom: 5px;">java</span></a><a href="/tags/diary"><span class="tag post-item-tag" style="margin-bottom: 5px;">diary</span></a><a href="/tags/maven"><span class="tag post-item-tag" style="margin-bottom: 5px;">maven</span></a><a href="/tags/%E6%84%9F%E6%82%9F"><span class="tag post-item-tag" style="margin-bottom: 5px;">感悟</span></a><a href="/tags/%E8%B4%A2%E5%8A%A1"><span class="tag post-item-tag" style="margin-bottom: 5px;">财务</span></a><a href="/tags/story"><span class="tag post-item-tag" style="margin-bottom: 5px;">story</span></a></section></main></div></aside></div></article><script>$claudia.fadeInImage(null, $claudia.blurBackdropImg)
+            return val..</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2021/11/25/effective%20java2/">Read more</a></section></article></section><aside class="column is-hidden-mobile is-4-tablet is-3-widescreen"><div style="position: sticky; top: 50px;"><main class="aside-card-container tag-widget is-in-tag-page"><h3>Tags</h3><section><a href="/tags/java"><span class="tag post-item-tag" style="margin-bottom: 5px;">java</span></a><a href="/tags/diary"><span class="tag post-item-tag" style="margin-bottom: 5px;">diary</span></a><a href="/tags/maven"><span class="tag post-item-tag" style="margin-bottom: 5px;">maven</span></a><a href="/tags/%E6%84%9F%E6%82%9F"><span class="tag post-item-tag" style="margin-bottom: 5px;">感悟</span></a><a href="/tags/%E6%97%A5%E8%AE%B0"><span class="tag post-item-tag" style="margin-bottom: 5px;">日记</span></a><a href="/tags/%E8%B4%A2%E5%8A%A1"><span class="tag post-item-tag" style="margin-bottom: 5px;">财务</span></a><a href="/tags/story"><span class="tag post-item-tag" style="margin-bottom: 5px;">story</span></a></section></main></div></aside></div></article><script>$claudia.fadeInImage(null, $claudia.blurBackdropImg)
 
 window.addEventListener('resize', $claudia.throttle(function () {
     var images = document.querySelectorAll('.js-img-fadeIn')

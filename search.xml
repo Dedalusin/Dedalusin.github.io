@@ -4,13 +4,25 @@
   
     
     <entry>
-      <title>test</title>
-      <link href="/2021/12/07/test/"/>
-      <url>/2021/12/07/test/</url>
+      <title>关于短暂的幸福</title>
+      <link href="/2021/12/12/%E5%85%B3%E4%BA%8E%E7%9F%AD%E6%9A%82%E7%9A%84%E5%B9%B8%E7%A6%8F/"/>
+      <url>/2021/12/12/%E5%85%B3%E4%BA%8E%E7%9F%AD%E6%9A%82%E7%9A%84%E5%B9%B8%E7%A6%8F/</url>
       
-        <content type="html"><![CDATA[<h3 id="test-of-code"><a href="#test-of-code" class="headerlink" title="test of code"></a>test of code</h3><pre><code class="java">public class Main()&#123;  public static void main()&#123;    System.out.println(&quot;ddd&quot;);    &#125;&#125;  </code></pre>]]></content>
+        <content type="html"><![CDATA[<hr><p>‍这种手到擒来的幸福真是让人上瘾，人在健身节食减肥后往往容易反弹，这便是代谢匹配的问题，而幸福与多巴胺更是如此，仿佛不可形变的上瘾，假以时日，就这样凋零估计也很容易，饥饿感与饱腹感，仔细思考倒也不错，刚性的落差也挺好，抽刀断水水更流，大江东去，三大阶梯，三峡之能量来源，化学能化学反应，声音与波纹，嗯，确实，仔细思考确实挺好，是玩物丧志不够尖锐，把史莱姆与水滴当做目标吧，从张量和涨落开始。</p><hr><blockquote><p>cc 2021.12.12</p></blockquote>]]></content>
       
       
+      <categories>
+          
+          <category> 日记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 日记 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -21,7 +33,7 @@
       <link href="/2021/12/07/hasArray/"/>
       <url>/2021/12/07/hasArray/</url>
       
-        <content type="html"><![CDATA[<p>直接贴StackOverflow  </p><p><a href="https://stackoverflow.com/questions/55442531/why-do-we-ever-need-hasarray-method-in-charbuffer">https://stackoverflow.com/questions/55442531/why-do-we-ever-need-hasarray-method-in-charbuffer</a></p><hr><p>正文：</p><p>The condition for <code>hasArray</code> is  </p><pre><code class="java">(hb != null) &amp;&amp; !isReadOnly</code></pre><hr><p><code>isReadOnly</code> changes if you use <code>asReadOnlyBuffer</code></p><pre><code class="java">CharBuffer.allocate(20).asReadOnlyBuffer();</code></pre><p>for example.<br>So yes, we need it.</p><hr><p>Take this line</p><pre><code class="java">final CharBuffer cb = instance.getCharBuffer(...);</code></pre><p>Is it read-only or not? Does it hold a valid <code>char[]</code> array? We don&#39;t really know. If we do</p><pre><code class="java">cb.array();</code></pre><p>and it is a read-only Buffer, we get a <code>ReadOnlyBufferException</code>.<br>If it isn&#39;t backed by a <code>char[]</code> array we get a <code>UnsupportedOperationException</code>.</p><p>So what we <em>might</em> do is</p><pre><code class="java">if (cb.hasArray()) &#123;   final char[] arr = cb.array();&#125;</code></pre><p>Now we are <code>Exception</code>-safe.<br>Also, you can be sure Oracle/OpenJDK/whateverJDK engineers know what they&#39;re doing ;)</p>]]></content>
+        <content type="html"><![CDATA[<p>直接贴StackOverflow  </p><p><a href="https://stackoverflow.com/questions/55442531/why-do-we-ever-need-hasarray-method-in-charbuffer">https://stackoverflow.com/questions/55442531/why-do-we-ever-need-hasarray-method-in-charbuffer</a></p><hr><p>正文：</p><p>The condition for <code>hasArray</code> is  </p><pre><code class="java">(hb != null) &amp;&amp; !isReadOnly</code></pre><hr><p><code>isReadOnly</code> changes if you use <code>asReadOnlyBuffer</code></p><pre><code class="java">CharBuffer.allocate(20).asReadOnlyBuffer();</code></pre><p>for example.<br>So yes, we need it.</p><hr><p>Take this line</p><pre><code class="java">final CharBuffer cb = instance.getCharBuffer(...);</code></pre><p>Is it read-only or not? Does it hold a valid <code>char[]</code> array? We don’t really know. If we do</p><pre><code class="java">cb.array();</code></pre><p>and it is a read-only Buffer, we get a <code>ReadOnlyBufferException</code>.<br>If it isn’t backed by a <code>char[]</code> array we get a <code>UnsupportedOperationException</code>.</p><p>So what we <em>might</em> do is</p><pre><code class="java">if (cb.hasArray()) &#123;   final char[] arr = cb.array();&#125;</code></pre><p>Now we are <code>Exception</code>-safe.<br>Also, you can be sure Oracle/OpenJDK/whateverJDK engineers know what they’re doing ;)</p>]]></content>
       
       
       <categories>
