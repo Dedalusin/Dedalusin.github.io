@@ -1,13 +1,58 @@
 <!DOCTYPE html><html class="appearance-auto" lang="en"><head><meta charset="UTF-8"><title>字段无多态</title><meta name="description" content="醉生梦死"><meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, initial-scale=1"><!-- Google Analytics --><!-- End Google Analytics -->
 <!-- Baidu Analytics --><!-- End Baidu Analytics --><link rel="icon" href="/./images/50986973.png"><link rel="stylesheet" href="/style/common/bulma.css"><link rel="stylesheet" href="/style/base.css"><link rel="stylesheet" href="/style/common/helper.css"><script src="/js/common.js"></script><link rel="stylesheet" href="/style/post.css"><link rel="stylesheet" href="/style/themes/highlight-theme-light.css"><script src="/js/highlight.pack.js"></script><meta name="description" content="节选《深入理解java虚拟机》
 一个有意思的例子：
-package org.fenixsoft.polymorphic;/*** 字段不参与多态* @author zzm*/public class FieldHasNoPolymorphic &amp;#123;	static class Father &amp;#123;        public int money = 1;        public Father() &amp;#123;            money = 2;            showMeTheMoney();        &amp;#125;        public void showMeTheMoney() &amp;#123;            System.out.println(&amp;quot.."><meta name="generator" content="Hexo 5.4.0"></head><body class="is-flex is-flex-direction-column"><header class="header-widget is-flex-shrink-0 is-hidden-mobile"><div class="container is-fullhd is-flex is-justify-content-space-between is-align-items-center is-full-height"><section class="is-hidden-mobile is-flex-shrink-0"><h2><a href="/">cc's blog</a></h2></section><h3 class="is-hidden-mobile is-family-serif is-full-height is-flex is-align-items-center is-flex-shrink-0"><div class="is-full-height" id="postTopic"><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">字段无多态</p><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">Click back to the top</p></div></h3><aside class="is-flex-shrink-0"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></aside></div></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></header><main><main class="container is-max-widescreen content section post-page pt-4 px-4"><div class="columns is-flex-desktop is-justify-content-center is-flex-direction-row-reverse"><div class="column is-3 is-hidden-mobile is-hidden"></div><div class="column is-9"><header class="my-4"><a href="/tags/java"><i class="tag post-item-tag">java</i></a></header><h1 class="mt-0 mb-1 is-family-serif" id="postTitle">字段无多态</h1><time class="has-text-grey" datetime="2021-12-27T03:11:11.000Z">2021-12-27</time><article class="mt-2 post-content"><p>节选《深入理解java虚拟机》</p>
+package org.fenixsoft.polymorphic;
+/**
+* 字段不参与多态
+* @author zzm
+*/
+public class FieldHasNoPolymorphic &amp;#123;
+    static class Father &amp;#123;
+        public int money = 1;
+        public Father() &amp;#123;
+            money = 2;
+            showMeTheMoney();
+        &amp;#125;
+        public void showMeTheMoney() &amp;#123;
+            System.o.."><meta name="generator" content="Hexo 5.4.0"></head><body class="is-flex is-flex-direction-column"><header class="header-widget is-flex-shrink-0 is-hidden-mobile"><div class="container is-fullhd is-flex is-justify-content-space-between is-align-items-center is-full-height"><section class="is-hidden-mobile is-flex-shrink-0"><h2><a href="/">cc's blog</a></h2></section><h3 class="is-hidden-mobile is-family-serif is-full-height is-flex is-align-items-center is-flex-shrink-0"><div class="is-full-height" id="postTopic"><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">字段无多态</p><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">Click back to the top</p></div></h3><aside class="is-flex-shrink-0"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></aside></div></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></header><main><main class="container is-max-widescreen content section post-page pt-4 px-4"><div class="columns is-flex-desktop is-justify-content-center is-flex-direction-row-reverse"><div class="column is-3 is-hidden-mobile is-hidden"></div><div class="column is-9"><header class="my-4"><a href="/tags/java"><i class="tag post-item-tag">java</i></a></header><h1 class="mt-0 mb-1 is-family-serif" id="postTitle">字段无多态</h1><time class="has-text-grey" datetime="2021-12-27T03:11:11.000Z">2021-12-27</time><article class="mt-2 post-content"><p>节选《深入理解java虚拟机》</p>
 <p>一个有意思的例子：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> org.fenixsoft.polymorphic;<br><span class="hljs-comment">/**</span><br><span class="hljs-comment">* 字段不参与多态</span><br><span class="hljs-comment">* <span class="hljs-doctag">@author</span> zzm</span><br><span class="hljs-comment">*/</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FieldHasNoPolymorphic</span> </span>&#123;<br>	<span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Father</span> </span>&#123;<br>        <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> money = <span class="hljs-number">1</span>;<br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Father</span><span class="hljs-params">()</span> </span>&#123;<br>            money = <span class="hljs-number">2</span>;<br>            showMeTheMoney();<br>        &#125;<br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">showMeTheMoney</span><span class="hljs-params">()</span> </span>&#123;<br>            System.out.println(<span class="hljs-string">&quot;I am Father, i have $&quot;</span> + money);<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Son</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Father</span> </span>&#123;<br>        <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> money = <span class="hljs-number">3</span>;<br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Son</span><span class="hljs-params">()</span> </span>&#123;<br>            money = <span class="hljs-number">4</span>;<br>            showMeTheMoney();<br>    	&#125;<br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">showMeTheMoney</span><span class="hljs-params">()</span> </span>&#123;<br>            System.out.println(<span class="hljs-string">&quot;I am Son, i have $&quot;</span> + money);<br>        &#125;<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>    	Father gay = <span class="hljs-keyword">new</span> Son();<br>    	System.out.println(<span class="hljs-string">&quot;This gay has $&quot;</span> + gay.money);<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
-
+<pre><code class="java">package org.fenixsoft.polymorphic;
+/**
+* 字段不参与多态
+* @author zzm
+*/
+public class FieldHasNoPolymorphic &#123;
+    static class Father &#123;
+        public int money = 1;
+        public Father() &#123;
+            money = 2;
+            showMeTheMoney();
+        &#125;
+        public void showMeTheMoney() &#123;
+            System.out.println(&quot;I am Father, i have $&quot; + money);
+        &#125;
+    &#125;
+    static class Son extends Father &#123;
+        public int money = 3;
+        public Son() &#123;
+            money = 4;
+            showMeTheMoney();
+        &#125;
+        public void showMeTheMoney() &#123;
+            System.out.println(&quot;I am Son, i have $&quot; + money);
+        &#125;
+    &#125;
+    public static void main(String[] args) &#123;
+        Father gay = new Son();
+        System.out.println(&quot;This gay has $&quot; + gay.money);
+    &#125;
+&#125;
+</code></pre>
 <p>输出：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">I am Son, i have $<span class="hljs-number">0</span><br>I am Son, i have $<span class="hljs-number">4</span><br>This gay has $<span class="hljs-number">2</span><br></code></pre></td></tr></table></figure>
-
+<pre><code class="java">I am Son, i have $0
+I am Son, i have $4
+This gay has $2
+</code></pre>
 <hr>
 <p>解释：</p>
 <p>输出两句都是“I am Son”，这是因为Son类在创建的时候，首先隐式调用了Father的构造函数，而 Father构造函数中对showMeTheMoney()的调用是一次虚方法调用，实际执行的版本是 Son::showMeTheMoney()方法，所以输出的是“I am Son”，这点经过前面的分析相信读者是没有疑问的 了。而这时候虽然父类的money字段已经被初始化成2了，但Son::showMeTheMoney()方法中访问的却 是子类的money字段，这时候结果自然还是0，因为它要到子类的构造函数执行时才会被初始化。 main()的最后一句通过静态类型访问到了父类中的money，输出了2。</p>
