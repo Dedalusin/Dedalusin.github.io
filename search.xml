@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>反射</title>
+      <link href="/2022/02/21/%E5%8F%8D%E5%B0%84/"/>
+      <url>/2022/02/21/%E5%8F%8D%E5%B0%84/</url>
+      
+        <content type="html"><![CDATA[<ol><li><p>创建实例。</p><p>反射通过:</p><pre><code class="java">Class&lt;?&gt; c = String.class;Object str = c.newInstance();</code></pre><p>与new的区别：</p><ul><li>new：强类型。相对高效。能调用任何public构造。</li><li>newInstance: 弱类型。低效率。只能调用无参构造，是实现IOC、反射、面对接口编程 和 依赖倒置 等技术方法的必然选择，new 只能实现具体类的实例化，不适合于接口编程。</li></ul><p>正因为newInstance只能调用无参构造，所以Constructor对象就十分有必要了：</p><pre><code class="java">Class&lt;?&gt; c = String.class;Constructor constructor = c.getConstrutor(String.class);Object o = constructor.newInstance(&quot;cc&quot;);</code></pre><p>通过Constructor我们可以获取对应的构造器构造对象。</p></li><li><p>setAccessible(boolean)方法，当参数为true时，可以禁止安全检查。这样做可以实现两：</p><ul><li>加速，因为无需安全检查，所以会使得方法更快。</li></ul><pre><code class="java">Class c = App.class;try &#123;    //Constructor con =  c.getDeclaredConstructor();    Object obj = c.newInstance();    Method method = c.getDeclaredMethod(&quot;print&quot;);    long costTime = System.currentTimeMillis();    for (int i = 0; i &lt; 10000; i++) &#123;        method.invoke(obj);    &#125;    System.out.println(&quot;method cost: &quot;+ (System.currentTimeMillis()-costTime));    method.setAccessible(true);    costTime = System.currentTimeMillis();    for (int i = 0; i &lt; 10000; i++) &#123;        method.invoke(obj);    &#125;    System.out.println(&quot;method cost: &quot;+ (System.currentTimeMillis()-costTime));    //con.setAccessible(true);&#125; catch (Exception e) &#123;    e.printStackTrace();&#125;</code></pre><p>通过以上代码验证，提升起码25%</p><ul><li>可以使用私有方法。甚至可以调用私有构造函数。</li></ul><pre><code class="java">Class c = AConstructor con =  c.getDeclaredConstructor();con.setAccessible(true);</code></pre></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> code </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>for beauty</title>
       <link href="/2022/01/07/for%20beauty/"/>
       <url>/2022/01/07/for%20beauty/</url>
