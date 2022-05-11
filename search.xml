@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>函数式接口学习</title>
+      <link href="/2022/05/11/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/"/>
+      <url>/2022/05/11/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/</url>
+      
+        <content type="html"><![CDATA[<ol><li><p><em><strong>函数式接口：实际上感觉基本体现在参数的配置上</strong></em></p><ul><li><p><strong>Function：&lt;T，R&gt;  参数很正常，参数-&gt;结果</strong></p><ul><li>R apply(T t) 相当于方法的调用</li><li>compose(Function before) 先调用before再调用本身</li><li>andThen(Function after) 与上面的相反</li></ul></li><li><p><strong>Predict：&lt;T， boolean&gt; 返回为boolean</strong></p><ul><li>boolean test(T t) 相当于方法的调用</li><li>and(Predict) 与</li><li>or(Predict) 或</li><li>negate 取反</li></ul></li><li><p><strong>Supplier：<R> 没有参数传入，直接返回一个结果，相当于new的感觉</strong></p><ul><li>get() 方法的调用</li></ul></li><li><p><strong>Consumer：<T> 没有参数返回，直接消费参数</strong></p><ul><li>accept(T t) 方法的基本调用</li><li>andThen(Consumer after) 和function的andThen基本一致</li></ul></li><li><p><strong>以上基本上都是单参数的，多参数可以有BiFunction、Bixxx等，应用方法基本一致</strong></p></li></ul></li><li><p><em><strong>一些基本的应用场景</strong></em></p><ul><li>stream</li></ul><pre><code class="java">IntPredicate filteThree = (i) -&gt; i%3 != 0;        IntStream.range(1, 10)                .filter(filteThree)//当然如果不复用而且简单，优先直接lambda吧                .forEach(System.out::println);</code></pre><ul><li>optional 像类似这种一般需要把函数当做参数传递的基本都很适合</li></ul></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> code </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>沉思录摘录</title>
       <link href="/2022/02/22/%E6%B2%89%E6%80%9D%E5%BD%95%E6%91%98%E5%BD%95/"/>
       <url>/2022/02/22/%E6%B2%89%E6%80%9D%E5%BD%95%E6%91%98%E5%BD%95/</url>
